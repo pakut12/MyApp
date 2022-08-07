@@ -12,6 +12,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import jxl.Workbook;
 import jxl.write.*;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -30,43 +33,62 @@ public class SVexportexcel extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            try {
-                String sql = "SELECT * FROM `tb_user`;";
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("name");
 
-                ArrayList<String> id = DB.ConnDB.getsqldata(sql, "id");
-                ArrayList<String> user = DB.ConnDB.getsqldata(sql, "user");
-                ArrayList<String> pass = DB.ConnDB.getsqldata(sql, "pass");
-
-                String fileName = DB.ConnDB.getpathExport() + "ExportExcelToLocal.xls";
-
-                WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
-
-                WritableSheet ws1 = workbook.createSheet("mySheet1", 0);
-
-                //หัวเรื่อง
-                ws1.addCell(new Label(0, 0, "id"));
-                ws1.addCell(new Label(1, 0, "Name"));
-                ws1.addCell(new Label(2, 0, "Sum"));
-                //จบหัวเรื่อง
-
-                for (int n = 0; n < user.size(); n++) {
-
-                    //เนื้อหา
-                    ws1.addCell(new Label(0, n + 1, id.get(n)));
-                    ws1.addCell(new Label(1, n + 1, user.get(n)));
-                    ws1.addCell(new Label(2, n + 1, pass.get(n)));
-                //จบเนื้อหา
-                }
-
-                workbook.write();
-                workbook.close();
-
-                out.println("Excel file created.");
-                out.println(fileName);
-            } catch (Exception e) {
-                e.printStackTrace();
-                out.print(e);
+            for (int n = 0; n < 3; n++) {
+                XSSFRow row = sheet.createRow(n);
+                row.createCell(0).setCellValue(2);
+                row.createCell(1).setCellValue(2);
+                row.createCell(2).setCellValue(2);
             }
+
+
+            FileOutputStream fos = new FileOutputStream("D:/cal.xlsx");
+
+
+            workbook.write(fos);
+            fos.close();
+
+
+
+//            try {
+        //                String sql = "SELECT * FROM `tb_user`;";
+        //
+        //                ArrayList<String> id = DB.ConnDB.getsqldata(sql, "id");
+        //                ArrayList<String> user = DB.ConnDB.getsqldata(sql, "user");
+        //                ArrayList<String> pass = DB.ConnDB.getsqldata(sql, "pass");
+        //
+        //                String fileName = DB.ConnDB.getpathExport() + "ExportExcelToLocal.xls";
+        //
+        //                WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
+        //
+        //                WritableSheet ws1 = workbook.createSheet("mySheet1", 0);
+        //
+        //                //หัวเรื่อง
+        //                ws1.addCell(new Label(0, 0, "id"));
+        //                ws1.addCell(new Label(1, 0, "Name"));
+        //                ws1.addCell(new Label(2, 0, "Sum"));
+        //                //จบหัวเรื่อง
+        //
+        //                for (int n = 0; n < user.size(); n++) {
+        //
+        //                    //เนื้อหา
+        //                    ws1.addCell(new Label(0, n + 1, id.get(n)));
+        //                    ws1.addCell(new Label(1, n + 1, user.get(n)));
+        //                    ws1.addCell(new Label(2, n + 1, pass.get(n)));
+        //                //จบเนื้อหา
+        //                }
+        //
+        //                workbook.write();
+        //                workbook.close();
+        //
+        //                out.println("Excel file created.");
+        //                out.println(fileName);
+        //            } catch (Exception e) {
+        //                e.printStackTrace();
+        //                out.print(e);
+        //            }
 
 
         } finally {
