@@ -51,8 +51,6 @@ public class ConnDB {
         return (ArrayList) arr;
     }
 
-    
-
     public static boolean getsql(String sql) throws SQLException {
         Statement s = null;
         try {
@@ -66,20 +64,22 @@ public class ConnDB {
     }
 
     public static String getpathupload() {
-        String pathwork = "C:/Users/pakutsing/Desktop/Github/MyPJ/web/upload/";
-        String pathhome = "C:/Users/Gus/Desktop/Github/MyPJ/web/upload/";
+        String pathwork = "C:/Users/pakutsing/Desktop/Github/MyApp/web/upload/";
+        String pathhome = "C:/Users/Gus/Desktop/Github/MyApp/web/upload/";
         return pathhome.toString();
     }
 
     public static String getpathfont() {
-        String pathwork = "C:/Users/pakutsing/Desktop/Github/MyPJ/web/font/";
-        String pathhome = "C:/Users/Gus/Desktop/Github/MyPJ/web/font/";
+        String pathwork = "C:/Users/pakutsing/Desktop/Github/MyApp/web/font/";
+        String pathhome = "C:/Users/Gus/Desktop/Github/MyApp/web/font/";
         return pathhome.toString();
     }
 
     public static String getpathExport() {
-        String pathwork = "C:/Users/pakutsing/Desktop/Github/MyPJ/web/Export/";
-        String pathhome = "C:/Users/Gus/Desktop/Github/MyPJ/web/Export/";
+        String pathwork = "C:/Users/pakutsing/Desktop/Github/MyApp/web/Export/";
+        String pathhome = "C:/Users/Gus/Desktop/Github/MyApp/web/Export/";
         return pathhome.toString();
     }
+
+   
 }

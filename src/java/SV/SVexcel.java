@@ -5,18 +5,10 @@
 package SV;
 
 import java.io.*;
-import java.net.*;
 
 import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import jxl.*;
-
-import java.util.Iterator;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -36,41 +28,76 @@ public class SVexcel extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+
+
             String w = request.getParameter("path");
             String Pathfolder = DB.ConnDB.getpathupload() + w;
             String x = null;
             out.print(Pathfolder);
 
-                InputStream ExcelFileToRead = new FileInputStream("C:/Test.xlsx");
-                XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
+            XSSFWorkbook workbook = new XSSFWorkbook(Pathfolder);
+            XSSFSheet sheet = workbook.getSheetAt(0);
 
-                XSSFWorkbook test = new XSSFWorkbook();
+            int rows = sheet.getLastRowNum();
+            int cols = sheet.getRow(1).getFirstCellNum();
+            ArrayList<String> arr = new ArrayList<String>();
 
-                XSSFSheet sheet = wb.getSheetAt(0);
-                XSSFRow row;
-                XSSFCell cell;
+            for (int a = 0; a <= rows; a++) {
+                String vOutput = Function.Excel.Read(a, 2, Pathfolder);
+                arr.add(vOutput);
+            }
 
-                Iterator rows = sheet.rowIterator();
-
-                while (rows.hasNext()) {
-                    row = (XSSFRow) rows.next();
-                    Iterator cells = row.cellIterator();
-                    while (cells.hasNext()) {
-                        cell = (XSSFCell) cells.next();
-
-                        if (cell.getCellType() == XSSFCell.CELL_TYPE_STRING) {
-                            System.out.print(cell.getStringCellValue() + " ");
-                        } else if (cell.getCellType() == XSSFCell.CELL_TYPE_NUMERIC) {
-                            System.out.print(cell.getNumericCellValue() + " ");
-                        } else {
-                            //U Can Handel Boolean, Formula, Errors
-                        }
-                    }
-                    System.out.println();
-                }
+            for (String row : arr) {
+                out.print(row);
+            }
 
 
 
+
+
+//
+//            File file = new File(Pathfolder);   //creating a new file instance  
+//
+//            FileInputStream fis = new FileInputStream(file);   //obtaining bytes from the file  
+////creating Workbook instance that refers to .xlsx file  
+//
+//            XSSFWorkbook wb = new XSSFWorkbook(fis);
+//            XSSFSheet sheet = wb.getSheetAt(0);     //creating a Sheet object to retrieve object  
+//
+//            Iterator<Row> itr = sheet.iterator();    //iterating over excel file  
+//
+//            while (itr.hasNext()) {
+//                Row row = itr.next();
+//                Iterator<Cell> cellIterator = row.cellIterator();   //iterating over each column  
+//
+//                while (cellIterator.hasNext()) {
+//                    Cell cell = cellIterator.next();
+//                    switch (cell.getCellType()) {
+//                        case Cell.CELL_TYPE_STRING:    //field that represents string cell type  
+//
+//                            System.out.print(cell.getStringCellValue() + "\t\t\t");
+//                            break;
+//                        case Cell.CELL_TYPE_NUMERIC:    //field that represents number cell type  
+//
+//                            System.out.print(cell.getNumericCellValue() + "\t\t\t");
+//                            break;
+//                        default:
+//                    }
+//                }
+//                System.out.println("");
+//            }
+/////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
 //            String w = request.getParameter("path");
 //            String Pathfolder = DB.ConnDB.getpathupload() + w;
 //            String x = null;
@@ -114,21 +141,18 @@ public class SVexcel extends HttpServlet {
 //            }
 
 
-
-            } finally {
-                out.close();
-            }
+        } finally {
+            out.close();
         }
+    }
 
-        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-        /** 
-         * Handles the HTTP <code>GET</code> method.
-         * @param request servlet request
-         * @param response servlet response
-         */
-    protected
-
-     void doGet(HttpServletRequest request, HttpServletResponse response)
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /** 
+     * Handles the HTTP <code>GET</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -149,5 +173,5 @@ public class SVexcel extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-    // </editor-fold>
+// </editor-fold>
 }
