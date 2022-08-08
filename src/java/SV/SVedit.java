@@ -8,6 +8,7 @@ import DB.ConnDB;
 import java.io.*;
 import java.net.*;
 import DB.ConnDB.*;
+import java.sql.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -37,19 +38,31 @@ public class SVedit extends HttpServlet {
 
             Statement s = null;
             Connection con = null;
+            PreparedStatement pr = null;
+            ResultSet rec = null;
             try {
                 String id = request.getParameter("txt1");
                 String user = request.getParameter("txt2");
                 String pass = request.getParameter("txt3");
-
-                String sql = "UPDATE tb_user SET tb_user.user = '" + user + "' ,tb_user.pass = '" + pass + "' WHERE id ='" + id + "';";
-
-                boolean status = DB.ConnDB.getsql(sql);
                 String page = null;
-                if (status) {
-                    page = "/home.jsp";
+                String sql = "UPDATE tb_user SET " +
+                        "tb_user.user = ?," +
+                        "tb_user.pass = ? " +
+                        "WHERE id = ?;";
+
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:4306/test" +
+                        "?user=root&password=");
+
+                pr = con.prepareStatement(sql);
+                pr.setString(1, user);
+                pr.setString(2, pass);
+                pr.setString(3, id);
+
+                if (pr.executeUpdate() > 0) {
+                    page = "/table.jsp";
                 } else {
-                    page = "/edit.jsp?id=" + id;
+                    page = "/edit.jsp";
                 }
 
                 RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
@@ -57,6 +70,7 @@ public class SVedit extends HttpServlet {
 
 
             } catch (Exception e) {
+                e.printStackTrace();
                 out.print(e);
             }
         } finally {

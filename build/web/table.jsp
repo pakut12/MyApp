@@ -66,7 +66,7 @@
                         out.print("<td>" + id + "</td>");
                         out.print("<td>" + user.get(n) + "</td>");
                         out.print("<td>" + pass.get(n) + "</td>");
-                        out.print("<td><a href='page/edit.jsp?id=" + id + "'><button type='button' class='btn btn-sm btn-warning'>Edit</button></a></td>");
+                        out.print("<td><a href='edit.jsp?id=" + id + "'><button type='button' class='btn btn-sm btn-warning'>Edit</button></a></td>");
                         out.print("<td><a href='del?id=" + id + "'><button type='button' class='btn btn-sm btn-danger'>Del</button></a></td>");
                         out.print("</tr>");
                     }

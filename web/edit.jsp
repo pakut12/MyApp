@@ -12,7 +12,7 @@
 
 <html>
     <head>
-        <%@include file="../nav/head.jsp"%> 
+        <%@include file="nav/head.jsp"%> 
     </head>
     <body>
         
@@ -35,7 +35,7 @@
                             เเก้ไข
                         </div>
                         <div class="card-body text-center">
-                            <form action="../edit" method="post" class="needs-validation">
+                            <form action="edit" method="post" class="needs-validation">
                                 <div class="container">
                                     <label>ID</label>
                                     <input class="form-control form-control-sm mb-3 text-center" type="text" name="txt1" id="txt1" readonly value="<%= id%>">
@@ -94,7 +94,7 @@
                 });
             });
         </script>
-        <%@ include file="../nav/footer.jsp" %>
+        <%@ include file="nav/footer.jsp" %>
         
     </body>
 </html>

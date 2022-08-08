@@ -43,7 +43,7 @@ public class SVlogin extends HttpServlet {
                 ps.setString(1, user);
                 ps.setString(2, pass);
                 rec = ps.executeQuery();
-
+               
                 if ((rec != null) && (rec.next())) {
                     page = "/home.jsp";
                     request.getSession().setAttribute("user", user);
