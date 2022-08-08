@@ -44,7 +44,7 @@ public class SVexportexcel extends HttpServlet {
             }
 
 
-            FileOutputStream fos = new FileOutputStream("D:/cal.xlsx");
+            FileOutputStream fos = new FileOutputStream(DB.ConnDB.getpathExport() + "cal.xlsx");
 
 
             workbook.write(fos);

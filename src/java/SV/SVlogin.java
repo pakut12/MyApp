@@ -5,16 +5,13 @@
 package SV;
 
 import java.io.*;
-import java.net.*;
-import DB.ConnDB;
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.*;
 import javax.servlet.http.*;
-
 
 /**
  *
@@ -32,43 +29,40 @@ public class SVlogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-
             String user = request.getParameter("txt1");
             String pass = request.getParameter("txt2");
             String page = null;
-            String sql = "SELECT * FROM `tb_user` WHERE tb_user.user ='" + user + "' and tb_user.pass = '" + pass + "';";
-            ArrayList<String> arr = DB.ConnDB.getsqldata(sql, "user");
-            String status = null;
-            int n = 0;
+
+            String sql = "SELECT * FROM `tb_user` WHERE tb_user.user = ? and tb_user.pass = ?;";
+            ResultSet rec = null;
+            Connection conn = null;
+            PreparedStatement ps = null;
             try {
-                if (arr.size() == 0) {
-                    page = "/index.jsp";
-                    status = "N";
-                } else {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("user", arr.get(0));
-                    
-                    
-                    status = "Y";
+                conn = DB.ConnDB.getConnDB();
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, user);
+                ps.setString(2, pass);
+                rec = ps.executeQuery();
+
+                if ((rec != null) && (rec.next())) {
                     page = "/home.jsp";
+                    request.getSession().setAttribute("user", user);
+                } else {
+                    page = "/index.jsp";
                 }
-
-
-                request.setAttribute("status", status);
-
-                RequestDispatcher rdp = getServletContext().getRequestDispatcher(page);
-                rdp.forward(request, response);
-
+                
+                RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
+                rd.forward(request, response);
+                
             } catch (Exception e) {
                 e.printStackTrace();
-                out.print(e);
             }
         } finally {
             out.close();
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
@@ -103,5 +97,5 @@ public class SVlogin extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }
-    // </editor-fold>
+// </editor-fold>
 }

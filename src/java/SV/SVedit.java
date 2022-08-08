@@ -49,7 +49,7 @@ public class SVedit extends HttpServlet {
                 if (status) {
                     page = "/home.jsp";
                 } else {
-                    page = "page/edit.jsp?id=" + id;
+                    page = "/edit.jsp?id=" + id;
                 }
 
                 RequestDispatcher rd = getServletContext().getRequestDispatcher(page);
