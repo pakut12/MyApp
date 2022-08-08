@@ -6,7 +6,7 @@ package SV;
 
 import java.io.*;
 import java.net.*;
-
+import java.sql.*;
 import java.util.ArrayList;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -33,62 +33,80 @@ public class SVexportexcel extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            XSSFWorkbook workbook = new XSSFWorkbook();
-            XSSFSheet sheet = workbook.createSheet("name");
+            Connection con = null;
+            ResultSet rec = null;
+            PreparedStatement pr = null;
+            String page = DB.ConnDB.getpathExport() + "cal.xlsx";
+            try {
 
-            for (int n = 0; n < 3; n++) {
-                XSSFRow row = sheet.createRow(n);
-                row.createCell(0).setCellValue(2);
-                row.createCell(1).setCellValue(2);
-                row.createCell(2).setCellValue(2);
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("name");
+
+                String sql = "SELECT * FROM `tb_user`;";
+                con = DB.ConnDB.getConnDB();
+                pr = con.prepareStatement(sql);
+                rec = pr.executeQuery();
+                int n = 0;
+                while ((rec.next()) && (rec != null)) {
+                    XSSFRow row = sheet.createRow(n);
+                    row.createCell(0).setCellValue(rec.getString("id"));
+                    row.createCell(1).setCellValue(rec.getString("user"));
+                    row.createCell(2).setCellValue(rec.getString("pass"));
+                    n++;
+                }
+
+                FileOutputStream fos = new FileOutputStream(page);
+
+                workbook.write(fos);
+                fos.close();
+               
+                out.print(page);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
 
-
-            FileOutputStream fos = new FileOutputStream(DB.ConnDB.getpathExport() + "cal.xlsx");
-
-
-            workbook.write(fos);
-            fos.close();
 
 
 
 //            try {
-        //                String sql = "SELECT * FROM `tb_user`;";
-        //
-        //                ArrayList<String> id = DB.ConnDB.getsqldata(sql, "id");
-        //                ArrayList<String> user = DB.ConnDB.getsqldata(sql, "user");
-        //                ArrayList<String> pass = DB.ConnDB.getsqldata(sql, "pass");
-        //
-        //                String fileName = DB.ConnDB.getpathExport() + "ExportExcelToLocal.xls";
-        //
-        //                WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
-        //
-        //                WritableSheet ws1 = workbook.createSheet("mySheet1", 0);
-        //
-        //                //หัวเรื่อง
-        //                ws1.addCell(new Label(0, 0, "id"));
-        //                ws1.addCell(new Label(1, 0, "Name"));
-        //                ws1.addCell(new Label(2, 0, "Sum"));
-        //                //จบหัวเรื่อง
-        //
-        //                for (int n = 0; n < user.size(); n++) {
-        //
-        //                    //เนื้อหา
-        //                    ws1.addCell(new Label(0, n + 1, id.get(n)));
-        //                    ws1.addCell(new Label(1, n + 1, user.get(n)));
-        //                    ws1.addCell(new Label(2, n + 1, pass.get(n)));
-        //                //จบเนื้อหา
-        //                }
-        //
-        //                workbook.write();
-        //                workbook.close();
-        //
-        //                out.println("Excel file created.");
-        //                out.println(fileName);
-        //            } catch (Exception e) {
-        //                e.printStackTrace();
-        //                out.print(e);
-        //            }
+            //                String sql = "SELECT * FROM `tb_user`;";
+            //
+            //                ArrayList<String> id = DB.ConnDB.getsqldata(sql, "id");
+            //                ArrayList<String> user = DB.ConnDB.getsqldata(sql, "user");
+            //                ArrayList<String> pass = DB.ConnDB.getsqldata(sql, "pass");
+            //
+            //                String fileName = DB.ConnDB.getpathExport() + "ExportExcelToLocal.xls";
+            //
+            //                WritableWorkbook workbook = Workbook.createWorkbook(new File(fileName));
+            //
+            //                WritableSheet ws1 = workbook.createSheet("mySheet1", 0);
+            //
+            //                //หัวเรื่อง
+            //                ws1.addCell(new Label(0, 0, "id"));
+            //                ws1.addCell(new Label(1, 0, "Name"));
+            //                ws1.addCell(new Label(2, 0, "Sum"));
+            //                //จบหัวเรื่อง
+            //
+            //                for (int n = 0; n < user.size(); n++) {
+            //
+            //                    //เนื้อหา
+            //                    ws1.addCell(new Label(0, n + 1, id.get(n)));
+            //                    ws1.addCell(new Label(1, n + 1, user.get(n)));
+            //                    ws1.addCell(new Label(2, n + 1, pass.get(n)));
+            //                //จบเนื้อหา
+            //                }
+            //
+            //                workbook.write();
+            //                workbook.close();
+            //
+            //                out.println("Excel file created.");
+            //                out.println(fileName);
+            //            } catch (Exception e) {
+            //                e.printStackTrace();
+            //                out.print(e);
+            //            }
 
 
         } finally {

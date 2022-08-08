@@ -50,9 +50,8 @@ public class SVedit extends HttpServlet {
                         "tb_user.pass = ? " +
                         "WHERE id = ?;";
 
-                Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:4306/test" +
-                        "?user=root&password=");
+
+                con = DB.ConnDB.getConnDB();
 
                 pr = con.prepareStatement(sql);
                 pr.setString(1, user);

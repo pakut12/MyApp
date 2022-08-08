@@ -90,7 +90,7 @@
                     $("#txt3").val("");
                 });
                 $("#home").click(function (){
-                    location.replace("../home.jsp")
+                    location.replace("home.jsp")
                 });
             });
         </script>
