@@ -519,6 +519,8 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <copy-ear-war file="${file.reference.curvesapi-1.04.jar-1}" propname="included.lib.file.reference.curvesapi-1.04.jar-1.X"/>
         <basename file="${file.reference.itextpdf-5.4.1.jar-1}" property="included.lib.file.reference.itextpdf-5.4.1.jar-1"/>
         <copy-ear-war file="${file.reference.itextpdf-5.4.1.jar-1}" propname="included.lib.file.reference.itextpdf-5.4.1.jar-1.X"/>
+        <basename file="${file.reference.jdbc-oracle.jar}" property="included.lib.file.reference.jdbc-oracle.jar"/>
+        <copy-ear-war file="${file.reference.jdbc-oracle.jar}" propname="included.lib.file.reference.jdbc-oracle.jar.X"/>
         <basename file="${file.reference.json-simple-1.1.1.jar-1}" property="included.lib.file.reference.json-simple-1.1.1.jar-1"/>
         <copy-ear-war file="${file.reference.json-simple-1.1.1.jar-1}" propname="included.lib.file.reference.json-simple-1.1.1.jar-1.X"/>
         <basename file="${file.reference.junit-4.12.jar-1}" property="included.lib.file.reference.junit-4.12.jar-1"/>
@@ -547,7 +549,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <copy-ear-war file="${file.reference.xmlbeans-2.6.0.jar-1}" propname="included.lib.file.reference.xmlbeans-2.6.0.jar-1.X"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${included.lib.file.reference.commons-codec-1.10.jar-1} ${included.lib.file.reference.commons-collections4-4.1.jar-1} ${included.lib.file.reference.commons-logging-1.2.jar-1} ${included.lib.file.reference.curvesapi-1.04.jar-1} ${included.lib.file.reference.itextpdf-5.4.1.jar-1} ${included.lib.file.reference.json-simple-1.1.1.jar-1} ${included.lib.file.reference.junit-4.12.jar-1} ${included.lib.file.reference.jxl.jar-1} ${included.lib.file.reference.log4j-1.2.17.jar-1} ${included.lib.file.reference.mysql-connector-java-5.0.2.jar-1} ${included.lib.file.reference.poi-3.17.jar-1} ${included.lib.file.reference.poi-examples-3.17.jar-1} ${included.lib.file.reference.poi-excelant-3.17.jar-1} ${included.lib.file.reference.poi-ooxml-3.17.jar-1} ${included.lib.file.reference.poi-ooxml-schemas-3.17.jar-1} ${included.lib.file.reference.poi-scratchpad-3.17.jar-1} ${included.lib.file.reference.sqljdbc42.jar-1} ${included.lib.file.reference.xmlbeans-2.6.0.jar-1} "/>
+            <attribute name="Class-Path" value="${included.lib.file.reference.commons-codec-1.10.jar-1} ${included.lib.file.reference.commons-collections4-4.1.jar-1} ${included.lib.file.reference.commons-logging-1.2.jar-1} ${included.lib.file.reference.curvesapi-1.04.jar-1} ${included.lib.file.reference.itextpdf-5.4.1.jar-1} ${included.lib.file.reference.jdbc-oracle.jar} ${included.lib.file.reference.json-simple-1.1.1.jar-1} ${included.lib.file.reference.junit-4.12.jar-1} ${included.lib.file.reference.jxl.jar-1} ${included.lib.file.reference.log4j-1.2.17.jar-1} ${included.lib.file.reference.mysql-connector-java-5.0.2.jar-1} ${included.lib.file.reference.poi-3.17.jar-1} ${included.lib.file.reference.poi-examples-3.17.jar-1} ${included.lib.file.reference.poi-excelant-3.17.jar-1} ${included.lib.file.reference.poi-ooxml-3.17.jar-1} ${included.lib.file.reference.poi-ooxml-schemas-3.17.jar-1} ${included.lib.file.reference.poi-scratchpad-3.17.jar-1} ${included.lib.file.reference.sqljdbc42.jar-1} ${included.lib.file.reference.xmlbeans-2.6.0.jar-1} "/>
         </manifest>
         <delete dir="${dist.ear.dir}/temp"/>
     </target>
@@ -557,6 +559,7 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <copy file="${file.reference.commons-logging-1.2.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.curvesapi-1.04.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.itextpdf-5.4.1.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.jdbc-oracle.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.json-simple-1.1.1.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.junit-4.12.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.jxl.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>

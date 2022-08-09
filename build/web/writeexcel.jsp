@@ -3,6 +3,7 @@
     Created on : 30 ก.ค. 2565, 9:05:56
     Author     : Gus
 --%>
+<%@page import="java.sql.*"%>
 <%@page import="java.util.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -53,10 +54,36 @@
                                                 <th>No</th>
                                                 <th>User</th>
                                                 <th>Pass</th>
+                                                <!-- 
+                                                <th>Status</th>
+                                                <th>Statwork</th>
+                                              -->  
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            
                                             <%
+            /*
+            Connection con = DB.ConnDB.getConnection();
+            PreparedStatement ps = null;
+            ResultSet rec = null;
+            String sql = "select * from pgusertab";
+            
+            ps = con.prepareStatement(sql);
+            rec = ps.executeQuery();
+            int n = 0;
+            while (rec.next()) {
+            int id = (n + 1);
+            out.print("<tr>");
+            out.print("<td>" + id + "</td>");
+            out.print("<td>" + rec.getString("userid") + "</td>");
+            out.print("<td>" + rec.getString("passwd") + "</td>");
+            out.print("<td>" + rec.getString("status") + "</td>");
+            out.print("<td>" + rec.getString("statwork") + "</td>");
+            n++;
+            }
+             */
+
             String sql = "SELECT * FROM `tb_user`;";
 
             ArrayList<String> user = DB.ConnDB.getsqldata(sql, "user");
@@ -79,6 +106,7 @@
             } catch (Exception e) {
                 out.print(e);
             }
+
 
 
                                             %>
