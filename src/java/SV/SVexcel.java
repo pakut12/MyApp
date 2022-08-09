@@ -48,6 +48,7 @@ public class SVexcel extends HttpServlet {
             }
 
             for (String row : arr) {
+                out.print("<br>");
                 out.print(row);
             }
 

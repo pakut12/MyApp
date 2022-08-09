@@ -59,7 +59,7 @@ public class SVjson extends HttpServlet {
                 obj.put("data", arrlist);
 
                 out.print(obj);
-
+                
             // obj.put("data", out);
 
 

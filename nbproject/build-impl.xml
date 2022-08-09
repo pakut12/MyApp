@@ -509,67 +509,67 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,-do-dist-with-manifest,-do-dist-without-manifest" name="do-dist"/>
     <target depends="init" if="dist.ear.dir" name="library-inclusion-in-manifest">
-        <basename file="${file.reference.commons-codec-1.10.jar}" property="included.lib.file.reference.commons-codec-1.10.jar"/>
-        <copy-ear-war file="${file.reference.commons-codec-1.10.jar}" propname="included.lib.file.reference.commons-codec-1.10.jar.X"/>
-        <basename file="${file.reference.commons-collections4-4.1.jar}" property="included.lib.file.reference.commons-collections4-4.1.jar"/>
-        <copy-ear-war file="${file.reference.commons-collections4-4.1.jar}" propname="included.lib.file.reference.commons-collections4-4.1.jar.X"/>
-        <basename file="${file.reference.commons-logging-1.2.jar}" property="included.lib.file.reference.commons-logging-1.2.jar"/>
-        <copy-ear-war file="${file.reference.commons-logging-1.2.jar}" propname="included.lib.file.reference.commons-logging-1.2.jar.X"/>
-        <basename file="${file.reference.curvesapi-1.04.jar}" property="included.lib.file.reference.curvesapi-1.04.jar"/>
-        <copy-ear-war file="${file.reference.curvesapi-1.04.jar}" propname="included.lib.file.reference.curvesapi-1.04.jar.X"/>
-        <basename file="${file.reference.itextpdf-5.4.1.jar}" property="included.lib.file.reference.itextpdf-5.4.1.jar"/>
-        <copy-ear-war file="${file.reference.itextpdf-5.4.1.jar}" propname="included.lib.file.reference.itextpdf-5.4.1.jar.X"/>
-        <basename file="${file.reference.json-simple-1.1.1.jar}" property="included.lib.file.reference.json-simple-1.1.1.jar"/>
-        <copy-ear-war file="${file.reference.json-simple-1.1.1.jar}" propname="included.lib.file.reference.json-simple-1.1.1.jar.X"/>
-        <basename file="${file.reference.junit-4.12.jar}" property="included.lib.file.reference.junit-4.12.jar"/>
-        <copy-ear-war file="${file.reference.junit-4.12.jar}" propname="included.lib.file.reference.junit-4.12.jar.X"/>
-        <basename file="${file.reference.jxl.jar}" property="included.lib.file.reference.jxl.jar"/>
-        <copy-ear-war file="${file.reference.jxl.jar}" propname="included.lib.file.reference.jxl.jar.X"/>
-        <basename file="${file.reference.log4j-1.2.17.jar}" property="included.lib.file.reference.log4j-1.2.17.jar"/>
-        <copy-ear-war file="${file.reference.log4j-1.2.17.jar}" propname="included.lib.file.reference.log4j-1.2.17.jar.X"/>
-        <basename file="${file.reference.mysql-connector-java-5.0.2.jar}" property="included.lib.file.reference.mysql-connector-java-5.0.2.jar"/>
-        <copy-ear-war file="${file.reference.mysql-connector-java-5.0.2.jar}" propname="included.lib.file.reference.mysql-connector-java-5.0.2.jar.X"/>
-        <basename file="${file.reference.poi-3.17.jar}" property="included.lib.file.reference.poi-3.17.jar"/>
-        <copy-ear-war file="${file.reference.poi-3.17.jar}" propname="included.lib.file.reference.poi-3.17.jar.X"/>
-        <basename file="${file.reference.poi-examples-3.17.jar}" property="included.lib.file.reference.poi-examples-3.17.jar"/>
-        <copy-ear-war file="${file.reference.poi-examples-3.17.jar}" propname="included.lib.file.reference.poi-examples-3.17.jar.X"/>
-        <basename file="${file.reference.poi-excelant-3.17.jar}" property="included.lib.file.reference.poi-excelant-3.17.jar"/>
-        <copy-ear-war file="${file.reference.poi-excelant-3.17.jar}" propname="included.lib.file.reference.poi-excelant-3.17.jar.X"/>
-        <basename file="${file.reference.poi-ooxml-3.17.jar}" property="included.lib.file.reference.poi-ooxml-3.17.jar"/>
-        <copy-ear-war file="${file.reference.poi-ooxml-3.17.jar}" propname="included.lib.file.reference.poi-ooxml-3.17.jar.X"/>
-        <basename file="${file.reference.poi-ooxml-schemas-3.17.jar}" property="included.lib.file.reference.poi-ooxml-schemas-3.17.jar"/>
-        <copy-ear-war file="${file.reference.poi-ooxml-schemas-3.17.jar}" propname="included.lib.file.reference.poi-ooxml-schemas-3.17.jar.X"/>
-        <basename file="${file.reference.poi-scratchpad-3.17.jar}" property="included.lib.file.reference.poi-scratchpad-3.17.jar"/>
-        <copy-ear-war file="${file.reference.poi-scratchpad-3.17.jar}" propname="included.lib.file.reference.poi-scratchpad-3.17.jar.X"/>
-        <basename file="${file.reference.sqljdbc42.jar}" property="included.lib.file.reference.sqljdbc42.jar"/>
-        <copy-ear-war file="${file.reference.sqljdbc42.jar}" propname="included.lib.file.reference.sqljdbc42.jar.X"/>
-        <basename file="${file.reference.xmlbeans-2.6.0.jar}" property="included.lib.file.reference.xmlbeans-2.6.0.jar"/>
-        <copy-ear-war file="${file.reference.xmlbeans-2.6.0.jar}" propname="included.lib.file.reference.xmlbeans-2.6.0.jar.X"/>
+        <basename file="${file.reference.commons-codec-1.10.jar-1}" property="included.lib.file.reference.commons-codec-1.10.jar-1"/>
+        <copy-ear-war file="${file.reference.commons-codec-1.10.jar-1}" propname="included.lib.file.reference.commons-codec-1.10.jar-1.X"/>
+        <basename file="${file.reference.commons-collections4-4.1.jar-1}" property="included.lib.file.reference.commons-collections4-4.1.jar-1"/>
+        <copy-ear-war file="${file.reference.commons-collections4-4.1.jar-1}" propname="included.lib.file.reference.commons-collections4-4.1.jar-1.X"/>
+        <basename file="${file.reference.commons-logging-1.2.jar-1}" property="included.lib.file.reference.commons-logging-1.2.jar-1"/>
+        <copy-ear-war file="${file.reference.commons-logging-1.2.jar-1}" propname="included.lib.file.reference.commons-logging-1.2.jar-1.X"/>
+        <basename file="${file.reference.curvesapi-1.04.jar-1}" property="included.lib.file.reference.curvesapi-1.04.jar-1"/>
+        <copy-ear-war file="${file.reference.curvesapi-1.04.jar-1}" propname="included.lib.file.reference.curvesapi-1.04.jar-1.X"/>
+        <basename file="${file.reference.itextpdf-5.4.1.jar-1}" property="included.lib.file.reference.itextpdf-5.4.1.jar-1"/>
+        <copy-ear-war file="${file.reference.itextpdf-5.4.1.jar-1}" propname="included.lib.file.reference.itextpdf-5.4.1.jar-1.X"/>
+        <basename file="${file.reference.json-simple-1.1.1.jar-1}" property="included.lib.file.reference.json-simple-1.1.1.jar-1"/>
+        <copy-ear-war file="${file.reference.json-simple-1.1.1.jar-1}" propname="included.lib.file.reference.json-simple-1.1.1.jar-1.X"/>
+        <basename file="${file.reference.junit-4.12.jar-1}" property="included.lib.file.reference.junit-4.12.jar-1"/>
+        <copy-ear-war file="${file.reference.junit-4.12.jar-1}" propname="included.lib.file.reference.junit-4.12.jar-1.X"/>
+        <basename file="${file.reference.jxl.jar-1}" property="included.lib.file.reference.jxl.jar-1"/>
+        <copy-ear-war file="${file.reference.jxl.jar-1}" propname="included.lib.file.reference.jxl.jar-1.X"/>
+        <basename file="${file.reference.log4j-1.2.17.jar-1}" property="included.lib.file.reference.log4j-1.2.17.jar-1"/>
+        <copy-ear-war file="${file.reference.log4j-1.2.17.jar-1}" propname="included.lib.file.reference.log4j-1.2.17.jar-1.X"/>
+        <basename file="${file.reference.mysql-connector-java-5.0.2.jar-1}" property="included.lib.file.reference.mysql-connector-java-5.0.2.jar-1"/>
+        <copy-ear-war file="${file.reference.mysql-connector-java-5.0.2.jar-1}" propname="included.lib.file.reference.mysql-connector-java-5.0.2.jar-1.X"/>
+        <basename file="${file.reference.poi-3.17.jar-1}" property="included.lib.file.reference.poi-3.17.jar-1"/>
+        <copy-ear-war file="${file.reference.poi-3.17.jar-1}" propname="included.lib.file.reference.poi-3.17.jar-1.X"/>
+        <basename file="${file.reference.poi-examples-3.17.jar-1}" property="included.lib.file.reference.poi-examples-3.17.jar-1"/>
+        <copy-ear-war file="${file.reference.poi-examples-3.17.jar-1}" propname="included.lib.file.reference.poi-examples-3.17.jar-1.X"/>
+        <basename file="${file.reference.poi-excelant-3.17.jar-1}" property="included.lib.file.reference.poi-excelant-3.17.jar-1"/>
+        <copy-ear-war file="${file.reference.poi-excelant-3.17.jar-1}" propname="included.lib.file.reference.poi-excelant-3.17.jar-1.X"/>
+        <basename file="${file.reference.poi-ooxml-3.17.jar-1}" property="included.lib.file.reference.poi-ooxml-3.17.jar-1"/>
+        <copy-ear-war file="${file.reference.poi-ooxml-3.17.jar-1}" propname="included.lib.file.reference.poi-ooxml-3.17.jar-1.X"/>
+        <basename file="${file.reference.poi-ooxml-schemas-3.17.jar-1}" property="included.lib.file.reference.poi-ooxml-schemas-3.17.jar-1"/>
+        <copy-ear-war file="${file.reference.poi-ooxml-schemas-3.17.jar-1}" propname="included.lib.file.reference.poi-ooxml-schemas-3.17.jar-1.X"/>
+        <basename file="${file.reference.poi-scratchpad-3.17.jar-1}" property="included.lib.file.reference.poi-scratchpad-3.17.jar-1"/>
+        <copy-ear-war file="${file.reference.poi-scratchpad-3.17.jar-1}" propname="included.lib.file.reference.poi-scratchpad-3.17.jar-1.X"/>
+        <basename file="${file.reference.sqljdbc42.jar-1}" property="included.lib.file.reference.sqljdbc42.jar-1"/>
+        <copy-ear-war file="${file.reference.sqljdbc42.jar-1}" propname="included.lib.file.reference.sqljdbc42.jar-1.X"/>
+        <basename file="${file.reference.xmlbeans-2.6.0.jar-1}" property="included.lib.file.reference.xmlbeans-2.6.0.jar-1"/>
+        <copy-ear-war file="${file.reference.xmlbeans-2.6.0.jar-1}" propname="included.lib.file.reference.xmlbeans-2.6.0.jar-1.X"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${included.lib.file.reference.commons-codec-1.10.jar} ${included.lib.file.reference.commons-collections4-4.1.jar} ${included.lib.file.reference.commons-logging-1.2.jar} ${included.lib.file.reference.curvesapi-1.04.jar} ${included.lib.file.reference.itextpdf-5.4.1.jar} ${included.lib.file.reference.json-simple-1.1.1.jar} ${included.lib.file.reference.junit-4.12.jar} ${included.lib.file.reference.jxl.jar} ${included.lib.file.reference.log4j-1.2.17.jar} ${included.lib.file.reference.mysql-connector-java-5.0.2.jar} ${included.lib.file.reference.poi-3.17.jar} ${included.lib.file.reference.poi-examples-3.17.jar} ${included.lib.file.reference.poi-excelant-3.17.jar} ${included.lib.file.reference.poi-ooxml-3.17.jar} ${included.lib.file.reference.poi-ooxml-schemas-3.17.jar} ${included.lib.file.reference.poi-scratchpad-3.17.jar} ${included.lib.file.reference.sqljdbc42.jar} ${included.lib.file.reference.xmlbeans-2.6.0.jar} "/>
+            <attribute name="Class-Path" value="${included.lib.file.reference.commons-codec-1.10.jar-1} ${included.lib.file.reference.commons-collections4-4.1.jar-1} ${included.lib.file.reference.commons-logging-1.2.jar-1} ${included.lib.file.reference.curvesapi-1.04.jar-1} ${included.lib.file.reference.itextpdf-5.4.1.jar-1} ${included.lib.file.reference.json-simple-1.1.1.jar-1} ${included.lib.file.reference.junit-4.12.jar-1} ${included.lib.file.reference.jxl.jar-1} ${included.lib.file.reference.log4j-1.2.17.jar-1} ${included.lib.file.reference.mysql-connector-java-5.0.2.jar-1} ${included.lib.file.reference.poi-3.17.jar-1} ${included.lib.file.reference.poi-examples-3.17.jar-1} ${included.lib.file.reference.poi-excelant-3.17.jar-1} ${included.lib.file.reference.poi-ooxml-3.17.jar-1} ${included.lib.file.reference.poi-ooxml-schemas-3.17.jar-1} ${included.lib.file.reference.poi-scratchpad-3.17.jar-1} ${included.lib.file.reference.sqljdbc42.jar-1} ${included.lib.file.reference.xmlbeans-2.6.0.jar-1} "/>
         </manifest>
         <delete dir="${dist.ear.dir}/temp"/>
     </target>
     <target depends="init" name="library-inclusion-in-archive" unless="dist.ear.dir">
-        <copy file="${file.reference.commons-codec-1.10.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.commons-collections4-4.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.commons-logging-1.2.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.curvesapi-1.04.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.itextpdf-5.4.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.json-simple-1.1.1.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.junit-4.12.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.jxl.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.log4j-1.2.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.mysql-connector-java-5.0.2.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.poi-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.poi-examples-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.poi-excelant-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.poi-ooxml-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.poi-ooxml-schemas-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.poi-scratchpad-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.sqljdbc42.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.xmlbeans-2.6.0.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.commons-codec-1.10.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.commons-collections4-4.1.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.commons-logging-1.2.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.curvesapi-1.04.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.itextpdf-5.4.1.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.json-simple-1.1.1.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.junit-4.12.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.jxl.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.log4j-1.2.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.mysql-connector-java-5.0.2.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.poi-3.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.poi-examples-3.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.poi-excelant-3.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.poi-ooxml-3.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.poi-ooxml-schemas-3.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.poi-scratchpad-3.17.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.sqljdbc42.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.xmlbeans-2.6.0.jar-1}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,library-inclusion-in-manifest" name="do-ear-dist">
         <dirname file="${dist.ear.war}" property="dist.jar.dir"/>

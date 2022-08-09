@@ -42,9 +42,10 @@ public class SVpdf extends HttpServlet {
             try {
                 Document document = new Document();
 
+                String path = DB.ConnDB.getpathExport() + "TestTableFile.pdf";
                 //Create OutputStream instance.
                 OutputStream outputStream =
-                        new FileOutputStream(new File(DB.ConnDB.getpathExport() + "TestTableFile.pdf"));
+                        new FileOutputStream(new File(path));
 
                 //Create PDFWriter instance.
                 PdfWriter.getInstance(document, outputStream);
@@ -109,9 +110,10 @@ public class SVpdf extends HttpServlet {
                 //Close document and outputStream.
                 document.close();
                 outputStream.close();
+                
+                out.print(path);
             } catch (Exception e) {
-                e.printStackTrace();
-                out.print(e);
+                e.printStackTrace();  
             }
 
         } finally {
