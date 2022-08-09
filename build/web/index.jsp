@@ -4,8 +4,7 @@
     Author     : Gus
 --%>
 <%@page import="java.util.*"%>
-<%@page import="java.sql.*"%>
-<%@page import="DB.ConnDB"%>
+<%@page import="java.text.*;"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,7 +14,7 @@
         <%@include file="nav/head.jsp"%> 
     </head>
     <body>
-        
+       
         <form action="login" method="post" class="needs-validation" novalidate>
             <div class="container mt-5">
                 <div class="card shadow-lg col-6 mx-auto ">
@@ -41,7 +40,7 @@
                     </div>
                 </div>
             </div>
-       
+            
         </form>
         
         <script>

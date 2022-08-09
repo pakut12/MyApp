@@ -53,25 +53,45 @@ public class SVexportexcel extends HttpServlet {
                 pr = con.prepareStatement(sql);
                 rec = pr.executeQuery();
 
+                sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 2));// ผสานเซลล์
 
+                XSSFRow row1 = sheet.createRow(0);
 
-
-                Row r = sheet.createRow(0);
-                sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, 3));
-
-                CellStyle style = workbook.createCellStyle();
-                style.setAlignment(HorizontalAlignment.CENTER);
+                XSSFCellStyle s = workbook.createCellStyle();
+                s.setAlignment(HorizontalAlignment.CENTER); //ตัวหนังสือตรงกลาง
                 
-                Cell cell = r.createCell(0);
-                cell.setCellStyle(style);
-                cell.setCellValue("tb_user");
+                // กรอบ
+                s.setBorderBottom(BorderStyle.THIN);
+                s.setBorderTop(BorderStyle.THIN);
+                s.setBorderLeft(BorderStyle.THIN);
+                s.setBorderRight(BorderStyle.THIN);
+                // จบกรอบ
+                
+                // หัวข้อ 
 
+                XSSFCell cell = row1.createCell(0);
+                cell.setCellValue("tb_user");
+                cell.setCellStyle(s);
+                
+                XSSFCell cell1 = row1.createCell(1);
+                cell1.setCellStyle(s);
+
+                XSSFCell cell2 = row1.createCell(2);
+                cell2.setCellStyle(s);
+
+                //จบหัวข้อ
+                
                 int n = 1;
                 while ((rec.next()) && (rec != null)) {
+                    // เนื้อหา
                     XSSFRow row = sheet.createRow(n);
-                    row.createCell(0).setCellValue(rec.getString("id"));
+                    row.createCell(0).setCellValue(Integer.valueOf(rec.getString("id")));
                     row.createCell(1).setCellValue(rec.getString("user"));
                     row.createCell(2).setCellValue(rec.getString("pass"));
+                    row.getCell(0).setCellStyle(s);
+                    row.getCell(1).setCellStyle(s);
+                    row.getCell(2).setCellStyle(s);
+                    // จบเนื้อหา
                     n++;
                 }
 
