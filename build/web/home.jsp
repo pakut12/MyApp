@@ -13,7 +13,7 @@
         <%@include file="nav/head.jsp"%> 
     </head>
     <body>
-       
+        
         
         <%@include file="nav/nav.jsp" %>
         
@@ -27,7 +27,7 @@
                         <div class="card-body text-center">
                             <p>รูปโปรไฟล์</p>
                             <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="img-thumbnail w-50 h-50 mb-3" >
-                            <p>User : <%= session.getAttribute("user") %></p>
+                            <p>User : <%= session.getAttribute("user")%></p>
                         </div>
                     </div>
                 </div>
@@ -49,6 +49,7 @@
         <script>
             $(document).ready(function (){
                 $("#page1").addClass("active");
+                
             });
 
         </script>

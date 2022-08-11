@@ -16,10 +16,6 @@ import java.util.List;
  */
 public class ConnDB {
 
-    
-    
-   
-
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Connection con = null;
         try {
@@ -50,7 +46,7 @@ public class ConnDB {
             Class.forName("com.mysql.jdbc.Driver");
             String portwork = "4306";
             String porthome = "3306";
-            con = DriverManager.getConnection("jdbc:mysql://localhost:" + portwork + "/test" +
+            con = DriverManager.getConnection("jdbc:mysql://localhost:" + porthome + "/test" +
                     "?user=root&password=");
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,18 +92,18 @@ public class ConnDB {
     public static String getpathupload() {
         String pathwork = "C:/Users/pakutsing/Desktop/Github/MyApp/web/upload/";
         String pathhome = "C:/Users/Gus/Desktop/Github/MyApp/web/upload/";
-        return pathwork.toString();
+        return pathhome.toString();
     }
 
     public static String getpathfont() {
         String pathwork = "C:/Users/pakutsing/Desktop/Github/MyApp/web/font/";
         String pathhome = "C:/Users/Gus/Desktop/Github/MyApp/web/font/";
-        return pathwork.toString();
+        return pathhome.toString();
     }
 
     public static String getpathExport() {
         String pathwork = "C:/Users/pakutsing/Desktop/Github/MyApp/web/Export/";
         String pathhome = "C:/Users/Gus/Desktop/Github/MyApp/web/Export/";
-        return pathwork.toString();
+        return pathhome.toString();
     }
 }
