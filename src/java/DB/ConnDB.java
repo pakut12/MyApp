@@ -4,6 +4,8 @@
  */
 package DB;
 
+import com.sap.mw.jco.IFunctionTemplate;
+import com.sap.mw.jco.JCO;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,10 @@ import java.util.List;
  * @author Gus
  */
 public class ConnDB {
+
+    
+    
+   
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         Connection con = null;
