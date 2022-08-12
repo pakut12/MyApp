@@ -30,16 +30,18 @@ public class SVsap extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             try {
+
                 JCO.Client client = null;
                 client = ConnectSap.createClient();
                 out.print(client);
 
             } catch (Exception ex) {
                 ex.printStackTrace();
-
             } catch (ExceptionInInitializerError e) {
                 e.printStackTrace();
-            }            
+            } catch (Throwable e) {
+                e.printStackTrace();
+            } 
 
 
         } finally {

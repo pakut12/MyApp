@@ -53,9 +53,7 @@ public class SVjson extends HttpServlet {
                     arrlist.add(arrjson);
                 }
 
-                obj.put("draw", 0);
-                obj.put("recordsTotal", id.size());
-                obj.put("recordsFiltered", id.size());
+                
                 obj.put("data", arrlist);
 
                 out.print(obj);
@@ -90,7 +88,7 @@ public class SVjson extends HttpServlet {
 //                rd.forward(request, response);
 
             } catch (Exception e) {
-                out.print(e);
+                e.printStackTrace();
             }
 
 

@@ -61,7 +61,7 @@
         </div>
         <script>
             $(document).ready(function (){
-               
+                /*
                 $.ajax({
                     type:"GET",
                     url:"https://jsonplaceholder.typicode.com/posts",
@@ -72,6 +72,10 @@
                         });
                         $("#mytable").DataTable();
                     }
+                });
+                 */
+                $("#mytable").DataTable({
+                    ajax: "${pageContext.request.contextPath}/json"
                 });
             });
 
