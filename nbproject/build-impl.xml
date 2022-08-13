@@ -543,15 +543,17 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <copy-ear-war file="${file.reference.poi-ooxml-schemas-3.17.jar}" propname="included.lib.file.reference.poi-ooxml-schemas-3.17.jar.X"/>
         <basename file="${file.reference.poi-scratchpad-3.17.jar}" property="included.lib.file.reference.poi-scratchpad-3.17.jar"/>
         <copy-ear-war file="${file.reference.poi-scratchpad-3.17.jar}" propname="included.lib.file.reference.poi-scratchpad-3.17.jar.X"/>
-        <basename file="${file.reference.sapjco.jar}" property="included.lib.file.reference.sapjco.jar"/>
-        <copy-ear-war file="${file.reference.sapjco.jar}" propname="included.lib.file.reference.sapjco.jar.X"/>
         <basename file="${file.reference.sqljdbc42.jar}" property="included.lib.file.reference.sqljdbc42.jar"/>
         <copy-ear-war file="${file.reference.sqljdbc42.jar}" propname="included.lib.file.reference.sqljdbc42.jar.X"/>
         <basename file="${file.reference.xmlbeans-2.6.0.jar}" property="included.lib.file.reference.xmlbeans-2.6.0.jar"/>
         <copy-ear-war file="${file.reference.xmlbeans-2.6.0.jar}" propname="included.lib.file.reference.xmlbeans-2.6.0.jar.X"/>
+        <basename file="${file.reference.sapjco.jar}" property="included.lib.file.reference.sapjco.jar"/>
+        <copy-ear-war file="${file.reference.sapjco.jar}" propname="included.lib.file.reference.sapjco.jar.X"/>
+        <basename file="${file.reference.sapjco3.jar}" property="included.lib.file.reference.sapjco3.jar"/>
+        <copy-ear-war file="${file.reference.sapjco3.jar}" propname="included.lib.file.reference.sapjco3.jar.X"/>
         <mkdir dir="${build.web.dir}/META-INF"/>
         <manifest file="${build.web.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${included.lib.file.reference.commons-codec-1.10.jar} ${included.lib.file.reference.commons-collections4-4.1.jar} ${included.lib.file.reference.commons-logging-1.2.jar} ${included.lib.file.reference.curvesapi-1.04.jar} ${included.lib.file.reference.itextpdf-5.4.1.jar} ${included.lib.file.reference.jdbc-oracle.jar} ${included.lib.file.reference.json-simple-1.1.1.jar} ${included.lib.file.reference.junit-4.12.jar} ${included.lib.file.reference.jxl.jar} ${included.lib.file.reference.log4j-1.2.17.jar} ${included.lib.file.reference.mysql-connector-java-5.0.2.jar} ${included.lib.file.reference.poi-3.17.jar} ${included.lib.file.reference.poi-examples-3.17.jar} ${included.lib.file.reference.poi-excelant-3.17.jar} ${included.lib.file.reference.poi-ooxml-3.17.jar} ${included.lib.file.reference.poi-ooxml-schemas-3.17.jar} ${included.lib.file.reference.poi-scratchpad-3.17.jar} ${included.lib.file.reference.sapjco.jar} ${included.lib.file.reference.sqljdbc42.jar} ${included.lib.file.reference.xmlbeans-2.6.0.jar} "/>
+            <attribute name="Class-Path" value="${included.lib.file.reference.commons-codec-1.10.jar} ${included.lib.file.reference.commons-collections4-4.1.jar} ${included.lib.file.reference.commons-logging-1.2.jar} ${included.lib.file.reference.curvesapi-1.04.jar} ${included.lib.file.reference.itextpdf-5.4.1.jar} ${included.lib.file.reference.jdbc-oracle.jar} ${included.lib.file.reference.json-simple-1.1.1.jar} ${included.lib.file.reference.junit-4.12.jar} ${included.lib.file.reference.jxl.jar} ${included.lib.file.reference.log4j-1.2.17.jar} ${included.lib.file.reference.mysql-connector-java-5.0.2.jar} ${included.lib.file.reference.poi-3.17.jar} ${included.lib.file.reference.poi-examples-3.17.jar} ${included.lib.file.reference.poi-excelant-3.17.jar} ${included.lib.file.reference.poi-ooxml-3.17.jar} ${included.lib.file.reference.poi-ooxml-schemas-3.17.jar} ${included.lib.file.reference.poi-scratchpad-3.17.jar} ${included.lib.file.reference.sqljdbc42.jar} ${included.lib.file.reference.xmlbeans-2.6.0.jar} ${included.lib.file.reference.sapjco.jar} ${included.lib.file.reference.sapjco3.jar} "/>
         </manifest>
         <delete dir="${dist.ear.dir}/temp"/>
     </target>
@@ -573,9 +575,10 @@ or ant -Dj2ee.platform.classpath=&lt;server_classpath&gt; (where no properties f
         <copy file="${file.reference.poi-ooxml-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.poi-ooxml-schemas-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.poi-scratchpad-3.17.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
-        <copy file="${file.reference.sapjco.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.sqljdbc42.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
         <copy file="${file.reference.xmlbeans-2.6.0.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.sapjco.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
+        <copy file="${file.reference.sapjco3.jar}" todir="${build.web.dir}/WEB-INF/lib"/>
     </target>
     <target depends="init,compile,compile-jsps,-pre-dist,library-inclusion-in-manifest" name="do-ear-dist">
         <dirname file="${dist.ear.war}" property="dist.jar.dir"/>

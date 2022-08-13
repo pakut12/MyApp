@@ -29,20 +29,36 @@ public class SVsap extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+//            try {
+//                JCO.Client client = null;
+//                client = ConnectSap.createClient();
+//                out.print(client);
+//
+//            } catch (Exception ex) {
+//                ex.printStackTrace();
+//            } catch (ExceptionInInitializerError e) {
+//                e.printStackTrace();
+//            } catch (Throwable e) {
+//                e.printStackTrace();
+//            } 
+
+            JCO.Client client = null;
             try {
+                client = JCO.createClient("500", // SAP client
+                        "zcpic2", // userid
+                        "8v,@1702", // password
+                        "EN", // language
+                        "10.0.62.8",// host name
+                        "00");
+                client.connect();
 
-                JCO.Client client = null;
-                client = ConnectSap.createClient();
                 out.print(client);
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            } catch (ExceptionInInitializerError e) {
+                
+            } catch (Exception e) {
                 e.printStackTrace();
-            } catch (Throwable e) {
+            } catch (Error e) {
                 e.printStackTrace();
-            } 
-
+            }
 
         } finally {
             out.close();

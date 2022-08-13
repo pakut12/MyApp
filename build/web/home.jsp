@@ -6,17 +6,17 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
+    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
         <%@include file="nav/head.jsp"%> 
     </head>
     <body>
-        
-        
+
+
         <%@include file="nav/nav.jsp" %>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-3"> 
@@ -44,16 +44,16 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <script>
-            $(document).ready(function (){
+            $(document).ready(function () {
                 $("#page1").addClass("active");
-                
+
             });
 
         </script>
         <%@ include file="nav/footer.jsp" %>
-        
+
     </body>
 </html>
