@@ -4,6 +4,7 @@
  */
 package SV;
 
+import DB.ConnectSap;
 import com.sap.mw.jco.IFunctionTemplate;
 import com.sap.mw.jco.*;
 import java.io.*;
@@ -28,27 +29,23 @@ public class SVsap extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-//            try {
-//                JCO.Client client = null;
-//                client = ConnectSap.createClient();
-//                out.print(client);
-//
-//            } catch (Exception ex) {
-//                ex.printStackTrace();
-//            } catch (ExceptionInInitializerError e) {
-//                e.printStackTrace();
-//            } catch (Throwable e) {
-//                e.printStackTrace();
-//            } 
+            try {
+//                JCO.Client client = ConnectSap.createpool();
+//                IRepository repository = ConnectSap.createRepository("Myrep");
+//                IFunctionTemplate ftemplate1 = repository.getFunctionTemplate("ZMM_MATERIAL_CREATE");
+//                JCO.Function function1 = new JCO.Function(ftemplate1);
+//                JCO.Table customer_orders = function1.getTableParameterList().getTable("FERTCODE");
+//                out.print(ftemplate1);
+//                out.print(customer_orders);
+//                out.print(customer_orders.getNumRows());
+//                out.print(customer_orders.getNumColumns());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
 
 
             try {
-
-
                 // Get a client from the pool
-                
-
-
 ////////                PreparedStatement pstmtCp = con.prepareStatement("SELECT PRODUCT_GROUP_ID, PLANT, DELIVER_PLANT,SALES_ORG, " +
 ////////                        "   DISTR_CHANNEL, STORAGE_LOC, CREATE_BY,    CREATE_DATE, UPD_BY, UPD_DATE " +
 ////////                        "   FROM PGCA.BM_PRODUCT_COPYTOPLANT  " +
