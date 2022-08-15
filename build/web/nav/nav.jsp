@@ -46,7 +46,9 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="sap.jsp" id="page7">SAP</a>
+                    <!-- กันเข้า SAP 
+                    <a class="nav-link" href="sap.jsp" id="page7" >SAP</a> 
+                    -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.jsp">Logout</a>
@@ -59,4 +61,4 @@
         </div>
     </div>
 </nav>
- <br><br><br><br>
+<br><br><br><br>
