@@ -30,15 +30,18 @@ public class SVsap extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             try {
-//                JCO.Client client = ConnectSap.createpool();
-//                IRepository repository = ConnectSap.createRepository("Myrep");
-//                IFunctionTemplate ftemplate1 = repository.getFunctionTemplate("ZMM_MATERIAL_CREATE");
-//                JCO.Function function1 = new JCO.Function(ftemplate1);
-//                JCO.Table customer_orders = function1.getTableParameterList().getTable("FERTCODE");
-//                out.print(ftemplate1);
-//                out.print(customer_orders);
-//                out.print(customer_orders.getNumRows());
-//                out.print(customer_orders.getNumColumns());
+////                JCO.Client client = ConnectSap.createpool();
+////                IRepository repository = ConnectSap.createRepository("Myrep");
+////                IFunctionTemplate ftemplate1 = repository.getFunctionTemplate("ZMM_MATERIAL_CREATE");
+////                JCO.Function function1 = new JCO.Function(ftemplate1);
+////                JCO.Table customer_orders = function1.getTableParameterList().getTable("FERTCODE");
+////                out.print(ftemplate1);
+////                out.print(customer_orders);
+////                out.print(customer_orders.getNumRows());
+////                out.print(customer_orders.getNumColumns());
+////                out.print(customer_orders.getString(""));
+////                while (customer_orders.nextRow()) {
+////                }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
